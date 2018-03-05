@@ -1,6 +1,6 @@
 ---
 
-- hosts: localhost
+- hosts: all
   remote_user: root
   vars:
     groups_to_create:
@@ -15,13 +15,41 @@
         profile: |
           alias ll='ls -lah'
           alias cp='cp -iv'
-        ssh_key:
-          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVpUJQCOaPg3p5xro9e+1fkGRWNOGrrExiKMqTE91Fwu349bxfMnMzRS0PAERouR9EEL+Ee4Yzhav/uNc35eCtXzACtluXnAncMrQj6pM3IqASynhvXTygHljmcMbBSDQtLrTZeW+YzIcOgk5UM1yBi26WoUYva2aCr9IRvKdYreAK08OiMdZedpOye0ZdvIYJGcyITwc6YMmrAhP7jZlrk/mDEkf2a4eBp+475o7MJtaC9npqYkToM8vqvx5AGEKqXt7/f1/paOY7KsR+VGPQy6k2RkXjWBsXPesZ3d3XLZHE60wAk0EsuJO8A25+uWSB6ILQeRSYYmGea/WIf6kd noone@throwaway.example.com"
+        ssh_authorized_keys:
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC607mJtyoP7i/spxuekJatZOE3rrX0y0xhvZQ8G4g3LE5zSB2XOxHNXe0lTwNPariQxJDnxJT6y3iqYgBWIsUM4vUfqcOeEbAt12Ye64bvFnERNOAWXyaCpgH3+wAx4DBKOA/CU4RvhxOsPcInyhCChKnzuS0wrcki4xE0TWO5YZyf58oCH7vISoKcGPfMppInacmBwTjf9DQQpuJTxUqWwP+cR6cyN8mRyxvzUYCRM0Oh4QuDMO3hti2G2Q1udH4/mpxh8Y7Yjefl9m4aKvjobzKW/f1OJJvyebYi89tKtRF/AeuEDVeyoF+JdgDWRwqCpnFkCQeKxLe3gUpyI6pt noone@throwaway.example.com"
+        ssh_priv_key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEowIBAAKCAQEAutO5ibcqD+4v7KcbnpCWrWThN6619MtMYb2UPBuINyxOc0gd
+          lzsRzV3tJU8DT2q4kMSQ58SU+st4qmIAViLFDOL1H6nDnhGwLddmHuuG7xZxETTg
+          Fl8mgqYB9/sAMeAwSjgPwlOEb4cTrD3CJ8oQgoSp87ktMK3JIuMRNE1juWGcn+fK
+          Ah+7yEqCnBj3zKaSJ2nJgcE43/Q0EKbiU8VKlsD/nEenMjfJkcsb81GAkTNDoeEL
+          gzDt4bYthtkNbnR+P5qcYfGO2I3n5fZuGir46G8ylv39TiSb8nm2IvPbSrURfwHr
+          hA1XsqBfiXYA1kcKgqZxZAkHisS3t4FKciOqbQIDAQABAoIBADdwzQZJDHpdvGsF
+          y/RqA8zAuvTDK8vQ6IG4uFx97xYwV7duFxnhtY6z6MPBhsHycYLEUhv1AiDKcKxf
+          GKp29vK0Bvm2bw5hQV7ZJLzYN9qLVlI81qLM6airiroECjLCzJG5wTNxhUNzWisq
+          yIr2M6AHrkddFEP1zlJD/779mDJSevcCBP4ZI6wnE7TprptWIuKpkNlVsXBML3H+
+          j00ouLrtMnM3EaKlWL06etsdjdfrnm378FV3bDwH234KYdYR8HKtOcJNv3PUuYIl
+          puRFaxy3DrbpRS33fNrJr25rBxP0GanjL+VFASiBdG8dlQnp53Ho82BNHBEC97Rs
+          MR17cAECgYEA669nnGJolKWdyJ4B2KeNniHuUdWnVUUfTmcaAk+9ecFMd/clG5Na
+          txrYxOy4+CBetCVN3foCfX/O4TVszCqa5eIY3HN6K6y1/LGZJXeMT5o0Yq0Wo7Y7
+          L0JF2x7k7iXUnsMop88QDa/tiriPT5liK2zQQZ8SpqSQspPXZo7iKu0CgYEAyu45
+          QRqh9oT+qCSqtwk78DhJZpMOsKm2C7Ovm/BWgelHtC8r9YlKBQ6Lqj/gjMqjMYg7
+          lcVQiTB1/qEq93BzQb4afbMvcKE0hKaiCQE7yWVeXFBd+fw1Gk8GH5GpwoIi7Ywv
+          spazs1mKv/U0kH6DjOVj9v4jLntvZ0r/OIg2DYECgYB7GTRus9+XtCEDRbQFKw6G
+          x4YobAVoPiAp3SPyjR+T1mhQSF+zVXWOKZGK2XGK960/PjS7efePARBXBIZ85Mve
+          wgbmLdJjuWOcRk6NCTHZ6drupyUqAOZMurqtxicgU9YHzjsP2tCxtW/Ggrsngh+K
+          Ot1TSPh+3XlOLHXW9U4fyQKBgQDEBCg5wsf/n6d8My7Tbo//Ed+UvSfLbaLy2rYe
+          IqDtC7C/U3Fa0yo0iEBQSzNTy8im57jmipmoaq8PLg6axHwQXNip4pNIb+6S04Jg
+          wFhHySrEcLzV49BHgV2g0Mrxn1KtsmPAVeFutGdZ1DjZ+dqIFmvhAMpq88BAPikZ
+          KjlMAQKBgAHCoImaeSX9ob2KrOJlhu1dNQiabBAdiXP/+1QTXFwvsgxtw1UDrFtN
+          d2hml7FKpSCaQOUf7TRdRCZrBZJrkE79B1NIt8vBcRcex/sEdQkw9Grh61XHByQj
+          oRsAzYwSGED6yG1qqJqvxwnf3ehQzjbFd+R58OFYAcpJuOPMyj8q
+          -----END RSA PRIVATE KEY-----
 
   roles:
     - ansible-users
 
-- hosts: localhost
+- hosts: all
   remote_user: root
   vars:
     users:
@@ -34,13 +62,41 @@
         profile: |
           alias ll='ls -lah'
           alias cp='cp -iv'
-        ssh_key:
-          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVpUJQCOaPg3p5xro9e+1fkGRWNOGrrExiKMqTE91Fwu349bxfMnMzRS0PAERouR9EEL+Ee4Yzhav/uNc35eCtXzACtluXnAncMrQj6pM3IqASynhvXTygHljmcMbBSDQtLrTZeW+YzIcOgk5UM1yBi26WoUYva2aCr9IRvKdYreAK08OiMdZedpOye0ZdvIYJGcyITwc6YMmrAhP7jZlrk/mDEkf2a4eBp+475o7MJtaC9npqYkToM8vqvx5AGEKqXt7/f1/paOY7KsR+VGPQy6k2RkXjWBsXPesZ3d3XLZHE60wAk0EsuJO8A25+uWSB6ILQeRSYYmGea/WIf6kd noone@throwaway.example.com"
+        ssh_authorized_keys:
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC607mJtyoP7i/spxuekJatZOE3rrX0y0xhvZQ8G4g3LE5zSB2XOxHNXe0lTwNPariQxJDnxJT6y3iqYgBWIsUM4vUfqcOeEbAt12Ye64bvFnERNOAWXyaCpgH3+wAx4DBKOA/CU4RvhxOsPcInyhCChKnzuS0wrcki4xE0TWO5YZyf58oCH7vISoKcGPfMppInacmBwTjf9DQQpuJTxUqWwP+cR6cyN8mRyxvzUYCRM0Oh4QuDMO3hti2G2Q1udH4/mpxh8Y7Yjefl9m4aKvjobzKW/f1OJJvyebYi89tKtRF/AeuEDVeyoF+JdgDWRwqCpnFkCQeKxLe3gUpyI6pt noone@throwaway.example.com"
+        ssh_priv_key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEowIBAAKCAQEAutO5ibcqD+4v7KcbnpCWrWThN6619MtMYb2UPBuINyxOc0gd
+          lzsRzV3tJU8DT2q4kMSQ58SU+st4qmIAViLFDOL1H6nDnhGwLddmHuuG7xZxETTg
+          Fl8mgqYB9/sAMeAwSjgPwlOEb4cTrD3CJ8oQgoSp87ktMK3JIuMRNE1juWGcn+fK
+          Ah+7yEqCnBj3zKaSJ2nJgcE43/Q0EKbiU8VKlsD/nEenMjfJkcsb81GAkTNDoeEL
+          gzDt4bYthtkNbnR+P5qcYfGO2I3n5fZuGir46G8ylv39TiSb8nm2IvPbSrURfwHr
+          hA1XsqBfiXYA1kcKgqZxZAkHisS3t4FKciOqbQIDAQABAoIBADdwzQZJDHpdvGsF
+          y/RqA8zAuvTDK8vQ6IG4uFx97xYwV7duFxnhtY6z6MPBhsHycYLEUhv1AiDKcKxf
+          GKp29vK0Bvm2bw5hQV7ZJLzYN9qLVlI81qLM6airiroECjLCzJG5wTNxhUNzWisq
+          yIr2M6AHrkddFEP1zlJD/779mDJSevcCBP4ZI6wnE7TprptWIuKpkNlVsXBML3H+
+          j00ouLrtMnM3EaKlWL06etsdjdfrnm378FV3bDwH234KYdYR8HKtOcJNv3PUuYIl
+          puRFaxy3DrbpRS33fNrJr25rBxP0GanjL+VFASiBdG8dlQnp53Ho82BNHBEC97Rs
+          MR17cAECgYEA669nnGJolKWdyJ4B2KeNniHuUdWnVUUfTmcaAk+9ecFMd/clG5Na
+          txrYxOy4+CBetCVN3foCfX/O4TVszCqa5eIY3HN6K6y1/LGZJXeMT5o0Yq0Wo7Y7
+          L0JF2x7k7iXUnsMop88QDa/tiriPT5liK2zQQZ8SpqSQspPXZo7iKu0CgYEAyu45
+          QRqh9oT+qCSqtwk78DhJZpMOsKm2C7Ovm/BWgelHtC8r9YlKBQ6Lqj/gjMqjMYg7
+          lcVQiTB1/qEq93BzQb4afbMvcKE0hKaiCQE7yWVeXFBd+fw1Gk8GH5GpwoIi7Ywv
+          spazs1mKv/U0kH6DjOVj9v4jLntvZ0r/OIg2DYECgYB7GTRus9+XtCEDRbQFKw6G
+          x4YobAVoPiAp3SPyjR+T1mhQSF+zVXWOKZGK2XGK960/PjS7efePARBXBIZ85Mve
+          wgbmLdJjuWOcRk6NCTHZ6drupyUqAOZMurqtxicgU9YHzjsP2tCxtW/Ggrsngh+K
+          Ot1TSPh+3XlOLHXW9U4fyQKBgQDEBCg5wsf/n6d8My7Tbo//Ed+UvSfLbaLy2rYe
+          IqDtC7C/U3Fa0yo0iEBQSzNTy8im57jmipmoaq8PLg6axHwQXNip4pNIb+6S04Jg
+          wFhHySrEcLzV49BHgV2g0Mrxn1KtsmPAVeFutGdZ1DjZ+dqIFmvhAMpq88BAPikZ
+          KjlMAQKBgAHCoImaeSX9ob2KrOJlhu1dNQiabBAdiXP/+1QTXFwvsgxtw1UDrFtN
+          d2hml7FKpSCaQOUf7TRdRCZrBZJrkE79B1NIt8vBcRcex/sEdQkw9Grh61XHByQj
+          oRsAzYwSGED6yG1qqJqvxwnf3ehQzjbFd+R58OFYAcpJuOPMyj8q
+          -----END RSA PRIVATE KEY-----
 
   roles:
     - ansible-users
 
-- hosts: localhost
+- hosts: all
   remote_user: root
   vars:
     users_create_per_user_group: false
@@ -58,13 +114,41 @@
         profile: |
           alias ll='ls -lah'
           alias cp='cp -iv'
-        ssh_key:
-          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVpUJQCOaPg3p5xro9e+1fkGRWNOGrrExiKMqTE91Fwu349bxfMnMzRS0PAERouR9EEL+Ee4Yzhav/uNc35eCtXzACtluXnAncMrQj6pM3IqASynhvXTygHljmcMbBSDQtLrTZeW+YzIcOgk5UM1yBi26WoUYva2aCr9IRvKdYreAK08OiMdZedpOye0ZdvIYJGcyITwc6YMmrAhP7jZlrk/mDEkf2a4eBp+475o7MJtaC9npqYkToM8vqvx5AGEKqXt7/f1/paOY7KsR+VGPQy6k2RkXjWBsXPesZ3d3XLZHE60wAk0EsuJO8A25+uWSB6ILQeRSYYmGea/WIf6kd noone@throwaway.example.com"
+        ssh_authorized_keys:
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC607mJtyoP7i/spxuekJatZOE3rrX0y0xhvZQ8G4g3LE5zSB2XOxHNXe0lTwNPariQxJDnxJT6y3iqYgBWIsUM4vUfqcOeEbAt12Ye64bvFnERNOAWXyaCpgH3+wAx4DBKOA/CU4RvhxOsPcInyhCChKnzuS0wrcki4xE0TWO5YZyf58oCH7vISoKcGPfMppInacmBwTjf9DQQpuJTxUqWwP+cR6cyN8mRyxvzUYCRM0Oh4QuDMO3hti2G2Q1udH4/mpxh8Y7Yjefl9m4aKvjobzKW/f1OJJvyebYi89tKtRF/AeuEDVeyoF+JdgDWRwqCpnFkCQeKxLe3gUpyI6pt noone@throwaway.example.com"
+        ssh_priv_key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEowIBAAKCAQEAutO5ibcqD+4v7KcbnpCWrWThN6619MtMYb2UPBuINyxOc0gd
+          lzsRzV3tJU8DT2q4kMSQ58SU+st4qmIAViLFDOL1H6nDnhGwLddmHuuG7xZxETTg
+          Fl8mgqYB9/sAMeAwSjgPwlOEb4cTrD3CJ8oQgoSp87ktMK3JIuMRNE1juWGcn+fK
+          Ah+7yEqCnBj3zKaSJ2nJgcE43/Q0EKbiU8VKlsD/nEenMjfJkcsb81GAkTNDoeEL
+          gzDt4bYthtkNbnR+P5qcYfGO2I3n5fZuGir46G8ylv39TiSb8nm2IvPbSrURfwHr
+          hA1XsqBfiXYA1kcKgqZxZAkHisS3t4FKciOqbQIDAQABAoIBADdwzQZJDHpdvGsF
+          y/RqA8zAuvTDK8vQ6IG4uFx97xYwV7duFxnhtY6z6MPBhsHycYLEUhv1AiDKcKxf
+          GKp29vK0Bvm2bw5hQV7ZJLzYN9qLVlI81qLM6airiroECjLCzJG5wTNxhUNzWisq
+          yIr2M6AHrkddFEP1zlJD/779mDJSevcCBP4ZI6wnE7TprptWIuKpkNlVsXBML3H+
+          j00ouLrtMnM3EaKlWL06etsdjdfrnm378FV3bDwH234KYdYR8HKtOcJNv3PUuYIl
+          puRFaxy3DrbpRS33fNrJr25rBxP0GanjL+VFASiBdG8dlQnp53Ho82BNHBEC97Rs
+          MR17cAECgYEA669nnGJolKWdyJ4B2KeNniHuUdWnVUUfTmcaAk+9ecFMd/clG5Na
+          txrYxOy4+CBetCVN3foCfX/O4TVszCqa5eIY3HN6K6y1/LGZJXeMT5o0Yq0Wo7Y7
+          L0JF2x7k7iXUnsMop88QDa/tiriPT5liK2zQQZ8SpqSQspPXZo7iKu0CgYEAyu45
+          QRqh9oT+qCSqtwk78DhJZpMOsKm2C7Ovm/BWgelHtC8r9YlKBQ6Lqj/gjMqjMYg7
+          lcVQiTB1/qEq93BzQb4afbMvcKE0hKaiCQE7yWVeXFBd+fw1Gk8GH5GpwoIi7Ywv
+          spazs1mKv/U0kH6DjOVj9v4jLntvZ0r/OIg2DYECgYB7GTRus9+XtCEDRbQFKw6G
+          x4YobAVoPiAp3SPyjR+T1mhQSF+zVXWOKZGK2XGK960/PjS7efePARBXBIZ85Mve
+          wgbmLdJjuWOcRk6NCTHZ6drupyUqAOZMurqtxicgU9YHzjsP2tCxtW/Ggrsngh+K
+          Ot1TSPh+3XlOLHXW9U4fyQKBgQDEBCg5wsf/n6d8My7Tbo//Ed+UvSfLbaLy2rYe
+          IqDtC7C/U3Fa0yo0iEBQSzNTy8im57jmipmoaq8PLg6axHwQXNip4pNIb+6S04Jg
+          wFhHySrEcLzV49BHgV2g0Mrxn1KtsmPAVeFutGdZ1DjZ+dqIFmvhAMpq88BAPikZ
+          KjlMAQKBgAHCoImaeSX9ob2KrOJlhu1dNQiabBAdiXP/+1QTXFwvsgxtw1UDrFtN
+          d2hml7FKpSCaQOUf7TRdRCZrBZJrkE79B1NIt8vBcRcex/sEdQkw9Grh61XHByQj
+          oRsAzYwSGED6yG1qqJqvxwnf3ehQzjbFd+R58OFYAcpJuOPMyj8q
+          -----END RSA PRIVATE KEY-----
 
   roles:
     - ansible-users
 
-- hosts: localhost
+- hosts: all
   remote_user: root
   vars:
     users_create_per_user_group: false
@@ -79,13 +163,41 @@
         profile: |
           alias ll='ls -lah'
           alias cp='cp -iv'
-        ssh_key:
-          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVpUJQCOaPg3p5xro9e+1fkGRWNOGrrExiKMqTE91Fwu349bxfMnMzRS0PAERouR9EEL+Ee4Yzhav/uNc35eCtXzACtluXnAncMrQj6pM3IqASynhvXTygHljmcMbBSDQtLrTZeW+YzIcOgk5UM1yBi26WoUYva2aCr9IRvKdYreAK08OiMdZedpOye0ZdvIYJGcyITwc6YMmrAhP7jZlrk/mDEkf2a4eBp+475o7MJtaC9npqYkToM8vqvx5AGEKqXt7/f1/paOY7KsR+VGPQy6k2RkXjWBsXPesZ3d3XLZHE60wAk0EsuJO8A25+uWSB6ILQeRSYYmGea/WIf6kd noone@throwaway.example.com"
+        ssh_authorized_keys:
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC607mJtyoP7i/spxuekJatZOE3rrX0y0xhvZQ8G4g3LE5zSB2XOxHNXe0lTwNPariQxJDnxJT6y3iqYgBWIsUM4vUfqcOeEbAt12Ye64bvFnERNOAWXyaCpgH3+wAx4DBKOA/CU4RvhxOsPcInyhCChKnzuS0wrcki4xE0TWO5YZyf58oCH7vISoKcGPfMppInacmBwTjf9DQQpuJTxUqWwP+cR6cyN8mRyxvzUYCRM0Oh4QuDMO3hti2G2Q1udH4/mpxh8Y7Yjefl9m4aKvjobzKW/f1OJJvyebYi89tKtRF/AeuEDVeyoF+JdgDWRwqCpnFkCQeKxLe3gUpyI6pt noone@throwaway.example.com"
+        ssh_priv_key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEowIBAAKCAQEAutO5ibcqD+4v7KcbnpCWrWThN6619MtMYb2UPBuINyxOc0gd
+          lzsRzV3tJU8DT2q4kMSQ58SU+st4qmIAViLFDOL1H6nDnhGwLddmHuuG7xZxETTg
+          Fl8mgqYB9/sAMeAwSjgPwlOEb4cTrD3CJ8oQgoSp87ktMK3JIuMRNE1juWGcn+fK
+          Ah+7yEqCnBj3zKaSJ2nJgcE43/Q0EKbiU8VKlsD/nEenMjfJkcsb81GAkTNDoeEL
+          gzDt4bYthtkNbnR+P5qcYfGO2I3n5fZuGir46G8ylv39TiSb8nm2IvPbSrURfwHr
+          hA1XsqBfiXYA1kcKgqZxZAkHisS3t4FKciOqbQIDAQABAoIBADdwzQZJDHpdvGsF
+          y/RqA8zAuvTDK8vQ6IG4uFx97xYwV7duFxnhtY6z6MPBhsHycYLEUhv1AiDKcKxf
+          GKp29vK0Bvm2bw5hQV7ZJLzYN9qLVlI81qLM6airiroECjLCzJG5wTNxhUNzWisq
+          yIr2M6AHrkddFEP1zlJD/779mDJSevcCBP4ZI6wnE7TprptWIuKpkNlVsXBML3H+
+          j00ouLrtMnM3EaKlWL06etsdjdfrnm378FV3bDwH234KYdYR8HKtOcJNv3PUuYIl
+          puRFaxy3DrbpRS33fNrJr25rBxP0GanjL+VFASiBdG8dlQnp53Ho82BNHBEC97Rs
+          MR17cAECgYEA669nnGJolKWdyJ4B2KeNniHuUdWnVUUfTmcaAk+9ecFMd/clG5Na
+          txrYxOy4+CBetCVN3foCfX/O4TVszCqa5eIY3HN6K6y1/LGZJXeMT5o0Yq0Wo7Y7
+          L0JF2x7k7iXUnsMop88QDa/tiriPT5liK2zQQZ8SpqSQspPXZo7iKu0CgYEAyu45
+          QRqh9oT+qCSqtwk78DhJZpMOsKm2C7Ovm/BWgelHtC8r9YlKBQ6Lqj/gjMqjMYg7
+          lcVQiTB1/qEq93BzQb4afbMvcKE0hKaiCQE7yWVeXFBd+fw1Gk8GH5GpwoIi7Ywv
+          spazs1mKv/U0kH6DjOVj9v4jLntvZ0r/OIg2DYECgYB7GTRus9+XtCEDRbQFKw6G
+          x4YobAVoPiAp3SPyjR+T1mhQSF+zVXWOKZGK2XGK960/PjS7efePARBXBIZ85Mve
+          wgbmLdJjuWOcRk6NCTHZ6drupyUqAOZMurqtxicgU9YHzjsP2tCxtW/Ggrsngh+K
+          Ot1TSPh+3XlOLHXW9U4fyQKBgQDEBCg5wsf/n6d8My7Tbo//Ed+UvSfLbaLy2rYe
+          IqDtC7C/U3Fa0yo0iEBQSzNTy8im57jmipmoaq8PLg6axHwQXNip4pNIb+6S04Jg
+          wFhHySrEcLzV49BHgV2g0Mrxn1KtsmPAVeFutGdZ1DjZ+dqIFmvhAMpq88BAPikZ
+          KjlMAQKBgAHCoImaeSX9ob2KrOJlhu1dNQiabBAdiXP/+1QTXFwvsgxtw1UDrFtN
+          d2hml7FKpSCaQOUf7TRdRCZrBZJrkE79B1NIt8vBcRcex/sEdQkw9Grh61XHByQj
+          oRsAzYwSGED6yG1qqJqvxwnf3ehQzjbFd+R58OFYAcpJuOPMyj8q
+          -----END RSA PRIVATE KEY-----
 
   roles:
     - ansible-users
 
-- hosts: localhost
+- hosts: all
   remote_user: root
   vars:
     users:
@@ -98,8 +210,8 @@
         profile: |
           alias ll='ls -lah'
           alias cp='cp -iv'
-        ssh_key:
-          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVpUJQCOaPg3p5xro9e+1fkGRWNOGrrExiKMqTE91Fwu349bxfMnMzRS0PAERouR9EEL+Ee4Yzhav/uNc35eCtXzACtluXnAncMrQj6pM3IqASynhvXTygHljmcMbBSDQtLrTZeW+YzIcOgk5UM1yBi26WoUYva2aCr9IRvKdYreAK08OiMdZedpOye0ZdvIYJGcyITwc6YMmrAhP7jZlrk/mDEkf2a4eBp+475o7MJtaC9npqYkToM8vqvx5AGEKqXt7/f1/paOY7KsR+VGPQy6k2RkXjWBsXPesZ3d3XLZHE60wAk0EsuJO8A25+uWSB6ILQeRSYYmGea/WIf6kd noone@throwaway.example.com"
+        ssh_authorized_keys:
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC607mJtyoP7i/spxuekJatZOE3rrX0y0xhvZQ8G4g3LE5zSB2XOxHNXe0lTwNPariQxJDnxJT6y3iqYgBWIsUM4vUfqcOeEbAt12Ye64bvFnERNOAWXyaCpgH3+wAx4DBKOA/CU4RvhxOsPcInyhCChKnzuS0wrcki4xE0TWO5YZyf58oCH7vISoKcGPfMppInacmBwTjf9DQQpuJTxUqWwP+cR6cyN8mRyxvzUYCRM0Oh4QuDMO3hti2G2Q1udH4/mpxh8Y7Yjefl9m4aKvjobzKW/f1OJJvyebYi89tKtRF/AeuEDVeyoF+JdgDWRwqCpnFkCQeKxLe3gUpyI6pt noone@throwaway.example.com"
 
   roles:
     - ansible-users
