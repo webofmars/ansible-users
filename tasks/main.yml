@@ -28,15 +28,38 @@
   with_items: "{{users}}"
   tags: ['users','configuration']
 
-- name: SSH keys
+- name: SSH authorized keys
   authorized_key:
     user: "{{item.0.username}}"
     key: "{{item.1}}"
     path: "{{ item.0.home | default('/home/' + item.0.username) }}/.ssh/authorized_keys"
   with_subelements:
     - "{{users}}"
-    - ssh_key
+    - ssh_authorized_keys
   tags: ['users','configuration']
+
+- name: SSH private keys
+  copy:
+    content: "{{item.ssh_priv_key}}"
+    dest: "{{ item.home | default('/home/' + item.username) }}/.ssh/id_rsa"
+    owner: "{{item.username}}"
+    mode: "0600"
+  when: item is defined and item.ssh_priv_key is defined
+  no_log: true
+  with_items: "{{users}}"
+  tags: ['users','configuration']
+
+- name: SSH public keys | auto generated from private
+  shell: |
+    ssh-keygen -y -f id_rsa > id_rsa.pub && \
+      chmod 0600 id_rsa.pub && \
+      chown "{{item.username}}" id_rsa.pub && \
+      ssh-keygen -lf id_rsa.pub
+  args:
+    chdir: "{{ item.home | default('/home/' + item.username) }}/.ssh"
+    creates: "id_rsa.pub"
+  when: item is defined and item.ssh_priv_key is defined
+  with_items: "{{users}}"
 
 - name: Setup user profiles
   blockinfile:

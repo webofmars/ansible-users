@@ -39,11 +39,14 @@ The following attributes are required for each user:
 * group - optional primary group override
 * groups - a list of supplementary groups for the user.
 * profile - a string block for setting custom shell profiles
-* ssh_key - This should be a list of ssh keys for the user. Each ssh key
+* ssh_authorized_keys - This should be a list of ssh keys for the user. Each ssh key
   should be included directly and should have no newlines.
-* generate_ssh_key - Whether to generate a SSH key for the user (optional, defaults to no).
 
 In addition, the following items are optional for each user:
+
+* generate_ssh_key - Whether to generate a SSH key for the user (optional, defaults to no).
+
+* ssh_priv_key - ssh private key of the user (RSA format)
 
 * shell - The user's shell. This defaults to /bin/bash. The default is
   configurable using the users_default_shell variable if you want to give all
@@ -60,9 +63,13 @@ Example:
         home: /local/home/foo
         profile: |
           alias ll='ls -lah'
-        ssh_key:
+        ssh_authorized_keys:
           - "ssh-rsa AAAAA.... foo@machine"
           - "ssh-rsa AAAAB.... foo2@machine"
+        ssh_priv_key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          Key Content <...>
+          -----END RSA PRIVATE KEY-----
     groups_to_create:
       - name: developers
         gid: 10000

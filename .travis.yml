@@ -14,11 +14,11 @@ script:
   - ansible-playbook -i localhost, tests/test.yml --syntax-check
 
   # Run test.yml
-  - ansible-playbook -i localhost, --connection=local --sudo tests/test.yml
+  - ansible-playbook -i localhost, --connection=local --become tests/test.yml
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
-    ansible-playbook -i localhost, --connection=local --sudo tests/test.yml
+    ansible-playbook -i localhost, --connection=local --become tests/test.yml
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
@@ -42,6 +42,7 @@ script:
   - ls -lg /home/ansibletestuser3/.profile  | awk '{exit $3!="ansibletestgroup1"}'
   - ls -lg /home/otherdirectory1/.profile   | awk '{exit $3!="users"}'
   - ls -lgd /home/ansibletestuser5/.profile | awk '{exit $3!="ansibletestgroup"}'
+  # ssh keys are a bit hard to test because of file perms
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
